@@ -1,14 +1,14 @@
 export const Colors = {
     NEUTRAL_WHITE: '#FFFFFF',
     NEUTRAL_BLACK: '#000000',
-    BLUE_500: '#2196F3',
-    BLUE_550: '#217cc3',
+    BLUE: '#0A0D30',
+    YELLOW: '#FAA938',
+    GREEN: '#046b3bff',
     RED_800: '#CC0400',
     GRAY_200: '#E8E8E8',
     GRAY_400: '#B7B7B7',
     GRAY_600: '#6C6C6C',
     GRAY_700: '#7B7B7B',
-    GREEN_800: '#00A152',
 };
 
 export const FontFamilies = {
