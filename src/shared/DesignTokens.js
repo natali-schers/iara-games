@@ -1,14 +1,16 @@
 export const Colors = {
     NEUTRAL_WHITE: '#FFFFFF',
     NEUTRAL_BLACK: '#000000',
+    NEUTRAL_GRAY: '#cccccc',
     BLUE: '#0A0D30',
     YELLOW: '#FAA938',
     GREEN: '#046b3bff',
     RED_800: '#CC0400',
-    GRAY_200: '#E8E8E8',
-    GRAY_400: '#B7B7B7',
-    GRAY_600: '#6C6C6C',
-    GRAY_700: '#7B7B7B',
+};
+
+export const FontColors = {
+    PRIMARY: '#0A0D30',
+    SECONDARY: '#7F7F7F',
 };
 
 export const FontFamilies = {
@@ -58,7 +60,7 @@ export const Spaces = {
 };
 
 export const BorderRadiuses = {
-    ONE: '4px',
+    ONE: '8px',
 };
 
 export const Shadows = {
