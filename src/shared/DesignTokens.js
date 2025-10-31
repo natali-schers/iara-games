@@ -42,6 +42,7 @@ export const FontWeights = {
     THIN: 300,
     REGULAR: 400,
     BOLD: 500,
+    BOLDER: 600,
 };
 
 export const Spaces = {

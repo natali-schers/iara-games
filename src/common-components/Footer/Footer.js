@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors, FontColors, FontSizes } from '../../shared/DesignTokens';
+import { Colors, FontColors, FontSizes, FontFamilies } from '../../shared/DesignTokens';
 
 const LinksContainer = styled.div`
     display: flex;
@@ -19,6 +19,7 @@ const FooterLink = styled.a`
     color: ${FontColors.PRIMARY};
     text-decoration: none;  
     font-size: ${FontSizes.ONE_QUARTER};
+    font-family: ${FontFamilies.PRIMARY};
     border-bottom: 2px solid transparent;
 
     &:hover {

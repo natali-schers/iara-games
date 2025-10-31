@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { FontFamilies, Spaces, FontColors, FontSizes, Colors } from './DesignTokens';
+import { FontFamilies, Spaces, FontColors, FontSizes, Colors, FontWeights } from './DesignTokens';
 export const NormalizeStyles = createGlobalStyle`
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     /* Document
@@ -25,7 +25,8 @@ export const NormalizeStyles = createGlobalStyle`
      */
     body {
         margin: ${Spaces.NONE};
-        font-family: ${FontFamilies.PRIMARY};
+        font-family: ${FontFamilies.PRIMARY} !important;
+        
     }
     /**
      * Render the "main" element consistently in IE.
@@ -292,6 +293,8 @@ export const NormalizeStyles = createGlobalStyle`
         font-size: ${FontSizes.FOUR};
         margin-bottom: ${Spaces.ONE};
         margin-top: unset;
+        text-align: center;
+        font-weight: ${FontWeights.BOLDER};
         color: ${FontColors.PRIMARY};
     }
 `;

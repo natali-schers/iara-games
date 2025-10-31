@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Divider } from "../common-components/Divider/Divider";
 import { InputText } from "../common-components/InputText/InputText";
-import { Box, Flex } from "reflexbox";
+import { Flex, Box } from '@chakra-ui/react';
 import Button from "../common-components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Form = styled.form`
     display: flex;
@@ -32,19 +33,30 @@ export function Register() {
         const cepFormatted = cep.replace(/\D/g, '');
 
         try {
+            if (cepFormatted.length !== 8) {
+                return;
+            }
+
             const response = await axios.get(`https://viacep.com.br/ws/${cepFormatted}/json/`);
             const data = response.data;
             if (data.erro) {
-                console.log("CEP not found");
+                toast.error("CEP inválido!");
             }
             else{
                 setAddress((prev) => ({ ...prev, ...data }));
             }
 
         } catch (error) {
-            console.error("Error fetching address:", error);
+            toast.error("Erro ao buscar o CEP. Tente novamente mais tarde.");
             setAddress(initialState);
         }
+    };
+
+    // máscara e limite de 8 dígitos para CEP
+    const handleCepChange = (e) => {
+        const digits = e.target.value.replace(/\D/g, '').slice(0, 8); // limita a 8 dígitos
+        const masked = digits.length > 5 ? `${digits.slice(0,5)}-${digits.slice(5)}` : digits;
+        setAddress(prev => ({ ...prev, cep: masked }));
     };
 
     const navigate = useNavigate();
@@ -64,21 +76,22 @@ export function Register() {
                 <hr />
 
                 <Flex>
-                    <Box width={1 / 2} pr={2}>
+                    <Box pr={2} flex={1}>
                         <InputText
                             label="CEP"
                             id="cep"
-                            type="text"
+                            type="text"           
+                            inputMode="numeric"   
                             placeholder="Ex: 12345-678"
                             required
                             value={address.cep}
-                            maxLength={8}
-                            onChange={(e) => setAddress({ ...address, cep: e.target.value })}
+                            maxLength={9}         
+                            onChange={handleCepChange}
                             onBlur={() => fetchAddress(address.cep)}
                         />
                     </Box>
 
-                    <Box width={1 / 2} pl={2}>
+                    <Box pl={2} flex={1}>
                         <InputText
                             label="UF"
                             id="state"
@@ -122,11 +135,11 @@ export function Register() {
                 />
 
                 <Flex>
-                    <Box width={1 / 2} pr={2}>
+                    <Box pr={2} flex={1}>
                         <InputText label="Número" id="number" type="text" placeholder="Ex: 123" required />
                     </Box>
 
-                    <Box width={1 / 2} pl={2}>
+                    <Box pl={2} flex={1}>
                         <InputText label="Complemento" id="complement" type="text" placeholder="Ex: Apto 45, Bloco B" />
                     </Box>
                 </Flex>
@@ -134,11 +147,11 @@ export function Register() {
                 <hr />
 
                 <Flex>
-                    <Box width={1 / 2} pr={2}>
+                    <Box pr={2} flex={1}>
                         <Button variant="secondary" type="button" onClick={() => navigate('/')}>Voltar</Button>
                     </Box>
 
-                    <Box width={1 / 2} pl={2}>
+                    <Box pl={2} flex={1}>
                         <Button variant="primary" type="submit">Finalizar Cadastro</Button>
                     </Box>
                 </Flex>
