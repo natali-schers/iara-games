@@ -3,6 +3,7 @@ import { Divider } from "../common-components/Divider/Divider";
 import { InputText } from "../common-components/InputText/InputText";
 import { Box, Flex } from "reflexbox";
 import Button from "../common-components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Form = styled.form`
     display: flex;
@@ -13,17 +14,19 @@ const Form = styled.form`
 `;
 
 export function Register() {
+    const navigate = useNavigate();
+
     return (
         <Flex justifyContent="center" alignItems="center" flexDirection="column">
             <h1>Boas-vindas ao Iara!</h1>
             <p>Finalize seu cadastro para ter acesso a benefícios e ofertas exclusivas!</p>
             <Divider />
             <Form>
-                <InputText label="Nome Completo" id="full-name" type="text" placeholder="Ex: Maria Silva" required="true" />
-                <InputText label="Data de Nascimento" id="birth-date" type="date" placeholder="Ex: 01/01/1990" required="true" />
-                <InputText label="E-mail" id="email" type="email" placeholder="Ex: maria@email.com" required="true" />
+                <InputText label="Nome Completo" id="full-name" type="text" placeholder="Ex: Maria Silva" required />
+                <InputText label="Data de Nascimento" id="birth-date" type="date" placeholder="Ex: 01/01/1990" required />
+                <InputText label="E-mail" id="email" type="email" placeholder="Ex: maria@email.com" required />
                 <InputText label="Telefone" id="phone" type="tel" placeholder="Ex: (11) 98765-4321" />
-                <InputText label="Senha" id="password" type="password" placeholder="Crie uma senha segura" required="true" />
+                <InputText label="Senha" id="password" type="password" placeholder="Crie uma senha segura" required />
 
                 <hr />
 
@@ -37,9 +40,9 @@ export function Register() {
                     </Box>
                 </Flex>
 
-                <InputText label="Logradouro" id="street" type="text" placeholder="Ex: Rua das Flores" required="true" />
-                <InputText label="Bairro" id="neighborhood" type="text" placeholder="Ex: Jardim das Palmeiras" required="true" />
-                <InputText label="Cidade" id="city" type="text" placeholder="Ex: São Paulo" required="true" />
+                <InputText label="Logradouro" id="street" type="text" placeholder="Ex: Rua das Flores" required />
+                <InputText label="Bairro" id="neighborhood" type="text" placeholder="Ex: Jardim das Palmeiras" required />
+                <InputText label="Cidade" id="city" type="text" placeholder="Ex: São Paulo" required />
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>
@@ -55,11 +58,11 @@ export function Register() {
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>
-                        <Button variant="secondary">Voltar</Button>
+                        <Button variant="secondary" type="button" onClick={() => navigate('/')}>Voltar</Button>
                     </Box>
 
                     <Box width={1 / 2} pl={2}>
-                        <Button variant="primary">Finalizar Cadastro</Button>
+                        <Button variant="primary" type="submit">Finalizar Cadastro</Button>
                     </Box>
                 </Flex>
             </Form>
