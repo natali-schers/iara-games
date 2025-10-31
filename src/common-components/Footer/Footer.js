@@ -40,9 +40,9 @@ const Footer = () => {
     return (
         <footer>
             <LinksContainer>
-                <FooterLink href="/termos">Termos de Uso</FooterLink>
-                <FooterLink href="/privacidade">Política de Privacidade</FooterLink>
-                <FooterLink href="/sobre">Sobre a Iara Games</FooterLink>
+                <FooterLink href="/terms">Termos de Uso</FooterLink>
+                <FooterLink href="/privacy">Política de Privacidade</FooterLink>
+                <FooterLink href="/about">Sobre a Iara Games</FooterLink>
             </LinksContainer>
             <Copyright>
                 © Iara Games 2025 - Todos os direitos reservados
