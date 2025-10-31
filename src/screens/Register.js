@@ -3,6 +3,7 @@ import { Divider } from "../common-components/Divider/Divider";
 import { InputText } from "../common-components/InputText/InputText";
 import { Box, Flex } from "reflexbox";
 import Button from "../common-components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Form = styled.form`
     display: flex;
@@ -13,6 +14,8 @@ const Form = styled.form`
 `;
 
 export function Register() {
+    const navigate = useNavigate();
+
     return (
         <Flex justifyContent="center" alignItems="center" flexDirection="column">
             <h1>Boas-vindas ao Iara!</h1>
@@ -55,11 +58,11 @@ export function Register() {
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>
-                        <Button variant="secondary">Voltar</Button>
+                        <Button variant="secondary" type="button" onClick={() => navigate('/')}>Voltar</Button>
                     </Box>
 
                     <Box width={1 / 2} pl={2}>
-                        <Button variant="primary">Finalizar Cadastro</Button>
+                        <Button variant="primary" type="submit">Finalizar Cadastro</Button>
                     </Box>
                 </Flex>
             </Form>
