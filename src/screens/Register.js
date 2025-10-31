@@ -19,11 +19,11 @@ export function Register() {
             <p>Finalize seu cadastro para ter acesso a benefícios e ofertas exclusivas!</p>
             <Divider />
             <Form>
-                <InputText label="Nome Completo" id="full-name" type="text" placeholder="Ex: Maria Silva" required="true" />
-                <InputText label="Data de Nascimento" id="birth-date" type="date" placeholder="Ex: 01/01/1990" required="true" />
-                <InputText label="E-mail" id="email" type="email" placeholder="Ex: maria@email.com" required="true" />
+                <InputText label="Nome Completo" id="full-name" type="text" placeholder="Ex: Maria Silva" required />
+                <InputText label="Data de Nascimento" id="birth-date" type="date" placeholder="Ex: 01/01/1990" required />
+                <InputText label="E-mail" id="email" type="email" placeholder="Ex: maria@email.com" required />
                 <InputText label="Telefone" id="phone" type="tel" placeholder="Ex: (11) 98765-4321" />
-                <InputText label="Senha" id="password" type="password" placeholder="Crie uma senha segura" required="true" />
+                <InputText label="Senha" id="password" type="password" placeholder="Crie uma senha segura" required />
 
                 <hr />
 
@@ -37,9 +37,9 @@ export function Register() {
                     </Box>
                 </Flex>
 
-                <InputText label="Logradouro" id="street" type="text" placeholder="Ex: Rua das Flores" required="true" />
-                <InputText label="Bairro" id="neighborhood" type="text" placeholder="Ex: Jardim das Palmeiras" required="true" />
-                <InputText label="Cidade" id="city" type="text" placeholder="Ex: São Paulo" required="true" />
+                <InputText label="Logradouro" id="street" type="text" placeholder="Ex: Rua das Flores" required />
+                <InputText label="Bairro" id="neighborhood" type="text" placeholder="Ex: Jardim das Palmeiras" required />
+                <InputText label="Cidade" id="city" type="text" placeholder="Ex: São Paulo" required />
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>

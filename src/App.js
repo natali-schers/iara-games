@@ -4,6 +4,7 @@ import Header from "./common-components/Header/Header";
 import { NotFound } from "./screens/NotFound";
 import { Register } from "./screens/Register";
 import styled from "styled-components";
+import Footer from "./common-components/Footer/Footer";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -22,6 +23,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
       </Container>
+      <Footer />
     </BrowserRouter>
   );
 }
