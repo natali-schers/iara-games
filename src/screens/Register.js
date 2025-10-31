@@ -41,6 +41,7 @@ export function Register() {
             const data = response.data;
             if (data.erro) {
                 toast.error("CEP inválido!");
+                setAddress(initialState);
             }
             else{
                 setAddress((prev) => ({ ...prev, ...data }));
@@ -52,9 +53,8 @@ export function Register() {
         }
     };
 
-    // máscara e limite de 8 dígitos para CEP
     const handleCepChange = (e) => {
-        const digits = e.target.value.replace(/\D/g, '').slice(0, 8); // limita a 8 dígitos
+        const digits = e.target.value.replace(/\D/g, '').slice(0, 8);
         const masked = digits.length > 5 ? `${digits.slice(0,5)}-${digits.slice(5)}` : digits;
         setAddress(prev => ({ ...prev, cep: masked }));
     };
