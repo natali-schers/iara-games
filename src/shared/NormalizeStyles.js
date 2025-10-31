@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { FontFamilies, Spaces } from './DesignTokens';
+import { FontFamilies, Spaces, FontColors, FontSizes, Colors } from './DesignTokens';
 export const NormalizeStyles = createGlobalStyle`
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     /* Document
@@ -43,6 +43,8 @@ export const NormalizeStyles = createGlobalStyle`
         box-sizing: content-box; /* 1 */
         height: 0; /* 1 */
         overflow: visible; /* 2 */
+        width: 100%;
+        border-top: 1px solid ${Colors.NEUTRAL_GRAY};
     }
     /**
      * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -155,6 +157,7 @@ export const NormalizeStyles = createGlobalStyle`
     [type='reset'],
     [type='submit'] {
         -webkit-appearance: button;
+        appearance: button;
     }
     /**
      * Remove the inner border and padding in Firefox.
@@ -229,6 +232,7 @@ export const NormalizeStyles = createGlobalStyle`
      */
     [type='search'] {
         -webkit-appearance: textfield; /* 1 */
+        appearance: textfield; /* 1 */
         outline-offset: -2px; /* 2 */
     }
     /**
@@ -272,5 +276,22 @@ export const NormalizeStyles = createGlobalStyle`
      */
     [hidden] {
         display: none;
+    }
+
+    /* Text-level semantics
+    ========================================================================== */
+    p {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin: ${Spaces.NONE};
+    }
+
+    /* Headings
+    ========================================================================== */
+    h1 {
+        font-size: ${FontSizes.FOUR};
+        margin-bottom: ${Spaces.ONE};
+        margin-top: unset;
+        color: ${FontColors.PRIMARY};
     }
 `;

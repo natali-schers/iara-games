@@ -1,8 +1,9 @@
 export const Colors = {
     NEUTRAL_WHITE: '#FFFFFF',
     NEUTRAL_BLACK: '#000000',
-    NEUTRAL_GRAY: '#cccccc',
+    NEUTRAL_GRAY: '#e0e0e0',
     BLUE: '#0A0D30',
+    BLUE_OPACITY: '#0a0d3054',
     YELLOW: '#FAA938',
     GREEN: '#046b3bff',
     RED_800: '#CC0400',
