@@ -4,6 +4,8 @@ import { InputText } from "../common-components/InputText/InputText";
 import { Box, Flex } from "reflexbox";
 import Button from "../common-components/Button/Button";
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import axios from "axios";
 
 const Form = styled.form`
     display: flex;
@@ -14,6 +16,37 @@ const Form = styled.form`
 `;
 
 export function Register() {
+    const initialState = {
+        "cep": "",
+        "logradouro": "",
+        "complemento": "",
+        "bairro": "",
+        "localidade": "",
+        "uf": "",
+        "estado": "",
+    }
+
+    const [address, setAddress] = React.useState(initialState);
+
+    const fetchAddress = async (cep) => {
+        const cepFormatted = cep.replace(/\D/g, '');
+
+        try {
+            const response = await axios.get(`https://viacep.com.br/ws/${cepFormatted}/json/`);
+            const data = response.data;
+            if (data.erro) {
+                console.log("CEP not found");
+            }
+            else{
+                setAddress((prev) => ({ ...prev, ...data }));
+            }
+
+        } catch (error) {
+            console.error("Error fetching address:", error);
+            setAddress(initialState);
+        }
+    };
+
     const navigate = useNavigate();
 
     return (
@@ -32,17 +65,61 @@ export function Register() {
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>
-                        <InputText label="CEP" id="cep" type="text" placeholder="Ex: 12345-678" required />
+                        <InputText
+                            label="CEP"
+                            id="cep"
+                            type="text"
+                            placeholder="Ex: 12345-678"
+                            required
+                            value={address.cep}
+                            maxLength={8}
+                            onChange={(e) => setAddress({ ...address, cep: e.target.value })}
+                            onBlur={() => fetchAddress(address.cep)}
+                        />
                     </Box>
 
                     <Box width={1 / 2} pl={2}>
-                        <InputText label="UF" id="state" type="text" placeholder="Ex: SP" required />
+                        <InputText
+                            label="UF"
+                            id="state"
+                            type="text"
+                            placeholder="Ex: SP"
+                            required
+                            value={address.uf}
+                            onChange={(e) => setAddress({ ...address, uf: e.target.value })}
+                        />
                     </Box>
                 </Flex>
 
-                <InputText label="Logradouro" id="street" type="text" placeholder="Ex: Rua das Flores" required />
-                <InputText label="Bairro" id="neighborhood" type="text" placeholder="Ex: Jardim das Palmeiras" required />
-                <InputText label="Cidade" id="city" type="text" placeholder="Ex: São Paulo" required />
+                <InputText
+                    label="Logradouro"
+                    id="street"
+                    type="text"
+                    placeholder="Ex: Rua das Flores"
+                    required
+                    value={address.logradouro}
+                    onChange={(e) => setAddress({ ...address, logradouro: e.target.value })}
+                />
+
+                <InputText
+                    label="Bairro"
+                    id="neighborhood"
+                    type="text"
+                    placeholder="Ex: Jardim das Palmeiras"
+                    required
+                    value={address.bairro}
+                    onChange={(e) => setAddress({ ...address, bairro: e.target.value })}
+                />
+
+                <InputText
+                    label="Cidade"
+                    id="city"
+                    type="text"
+                    placeholder="Ex: São Paulo"
+                    required
+                    value={address.localidade}
+                    onChange={(e) => setAddress({ ...address, localidade: e.target.value })}
+                />
 
                 <Flex>
                     <Box width={1 / 2} pr={2}>
