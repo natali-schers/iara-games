@@ -23,7 +23,7 @@ const Nav = styled.nav`
   gap: 2rem;
 
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -93,14 +93,13 @@ const HamburgerIcon = styled.div`
     transform: translateY(8px);
   }
 
-  ${({ isOpen }) =>
-    isOpen &&
+  ${({ $isOpen }) =>
+    $isOpen &&
     `
     background-color: transparent;
     
     &::before {
       transform: rotate(45deg);
-
     }
 
     &::after {
@@ -122,9 +121,9 @@ const Header = () => {
         <img src={logo} alt="Iara Games" />
       </Logo>
       <HamburgerButton onClick={toggleMenu}>
-        <HamburgerIcon isOpen={isMenuOpen} />
+        <HamburgerIcon $isOpen={isMenuOpen} />
       </HamburgerButton>
-      <Nav isOpen={isMenuOpen}>
+      <Nav $isOpen={isMenuOpen}>
         <NavLink href="/home">Home</NavLink>
         <NavLink href="/games">Catálogo de Jogos</NavLink>
         <NavLink href="/about">Sobre o Iara Games</NavLink>

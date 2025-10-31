@@ -1,4 +1,4 @@
-import { Flex } from "reflexbox";
+import { Flex } from '@chakra-ui/react';
 import styled from "styled-components";
 import { BorderRadiuses, Colors, FontColors, FontFamilies, FontSizes } from "../../shared/DesignTokens";
 
@@ -6,6 +6,7 @@ const Input = styled.input`
     border-radius: ${BorderRadiuses.ONE};
     border: 1px solid ${Colors.NEUTRAL_GRAY};
     padding: 4px 8px;
+    font-size: ${FontSizes.ONE_HALF};
     height: 36px;
     width: 100%;
 
@@ -25,7 +26,7 @@ export function InputText(props) {
     return (
         <Flex flexDirection="column" alignItems="flex-start">
             <Label htmlFor={props.id}>{props.label}</Label>
-            <Input type={props.type} placeholder={props.placeholder} id={props.id} required={props.required} readOnly={props.readOnly} />
+            <Input {...props} />
         </Flex>
     );
 }

@@ -5,6 +5,8 @@ import { NotFound } from "./screens/NotFound";
 import { Register } from "./screens/Register";
 import styled from "styled-components";
 import Footer from "./common-components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -15,15 +17,18 @@ const Container = styled.div`
 function App() {
   return (
     <BrowserRouter>
-      <NormalizeStyles />
-      <Header />
-      <Container>
+      <ChakraProvider>
+        <NormalizeStyles />
+        <Header />
+        <ToastContainer position="top-right" autoClose={3000} />
+        <Container>
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-      </Container>
-      <Footer />
+        </Container>
+        <Footer />   
+      </ChakraProvider>
     </BrowserRouter>
   );
 }

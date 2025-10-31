@@ -1,5 +1,5 @@
 import notFoundImage from '../assets/images/not-found.png';
-import { Flex } from 'reflexbox';
+import { Flex } from '@chakra-ui/react';
 import styled from 'styled-components';
 import { Spaces } from '../shared/DesignTokens';
 
