@@ -1,7 +1,7 @@
 # 📌 Iara Games
 
 > Plataforma web dedicada à venda de jogos desenvolvidos no Brasil, com o objetivo de valorizar e impulsionar o mercado nacional de games.
-
+> O objetivo deste desenvolvimento foi praticar a integração de uma API utilizando Axios. Portanto, neste primeiro momento, apenas a página de cadastro está funcional, servindo como base para futuras implementações e aprimoramentos das demais telas.
 ---
 
 ## 🚀 Tecnologias Utilizadas
