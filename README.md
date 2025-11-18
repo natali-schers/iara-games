@@ -24,7 +24,7 @@ Veja o projeto rodando:
 1. Clone o repositório:
 
    ```bash
-   git clone [https://github.com/seu-usuario/seu-projeto.git](https://github.com/natali-schers/iara-games/)
+   git clone https://github.com/natali-schers/iara-games/
    ```
 
 2. Acesse a pasta do projeto
