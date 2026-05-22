@@ -5,7 +5,6 @@ import { Flex, Box } from '@chakra-ui/react';
 import Button from "../common-components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 const Form = styled.form`
@@ -37,8 +36,8 @@ export function Register() {
                 return;
             }
 
-            const response = await axios.get(`https://viacep.com.br/ws/${cepFormatted}/json/`);
-            const data = response.data;
+            const data = await fetchAddress(cepFormatted);
+
             if (data.erro) {
                 toast.error("CEP inválido!");
                 setAddress(initialState);
