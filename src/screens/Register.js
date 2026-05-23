@@ -6,6 +6,7 @@ import Button from "../common-components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { toast } from "react-toastify";
+import { fetchAddress } from "../services/cepService";
 
 const Form = styled.form`
     display: flex;
@@ -28,7 +29,7 @@ export function Register() {
 
     const [address, setAddress] = React.useState(initialState);
 
-    const fetchAddress = async (cep) => {
+    const fetchAddressData = async (cep) => {
         const cepFormatted = cep.replace(/\D/g, '');
 
         try {
@@ -86,7 +87,7 @@ export function Register() {
                             value={address.cep}
                             maxLength={9}         
                             onChange={handleCepChange}
-                            onBlur={() => fetchAddress(address.cep)}
+                            onBlur={() => fetchAddressData(address.cep)}
                         />
                     </Box>
 
