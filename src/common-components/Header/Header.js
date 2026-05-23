@@ -7,7 +7,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
   background-color: ${Colors.BLUE};
   position: relative;
 `;
@@ -124,7 +124,7 @@ const Header = () => {
         <HamburgerIcon $isOpen={isMenuOpen} />
       </HamburgerButton>
       <Nav $isOpen={isMenuOpen}>
-        <NavLink href="/home">Home</NavLink>
+        <NavLink href="/">Home</NavLink>
         <NavLink href="/games">Catálogo de Jogos</NavLink>
         <NavLink href="/about">Sobre o Iara Games</NavLink>
         <NavLink href="/logon">Login</NavLink>

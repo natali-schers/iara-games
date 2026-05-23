@@ -1,6 +1,8 @@
 import notFoundImage from '../assets/images/not-found.png';
 import { Flex } from '@chakra-ui/react';
 import styled from 'styled-components';
+import Button from '../common-components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 import { Spaces } from '../shared/DesignTokens';
 
 const Image = styled.img`
@@ -11,16 +13,17 @@ const Image = styled.img`
 `;
 
 export function NotFound() {
+    const navigate = useNavigate();
+    
     return (
         <Flex flexDirection="column" alignItems="center">
             <h1>Ops... Página não encontrada!</h1>
             <p>A página que você está procurando não existe ou não pode ser acessada no momento.</p>
             <Image src={notFoundImage} alt="Página não encontrada" />
 
-            {/* ToDo: descomentar botão após implementação da página inicial! */}
-            {/* <Flex>
+            <Flex>
                 <Button variant="primary" type="button" onClick={() => navigate('/')}>Ir para página inicial</Button>      
-            </Flex> */}
+            </Flex>
         </Flex>
     );
 }
